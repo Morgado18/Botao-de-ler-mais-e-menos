@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ler +/-</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    body{
+      font-family: 'poppins',sans-serif;
+      background: #313131;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .icon{
+      text-align: center;
+    }
+    .icon img{
+      width: 215px;
+    }
+    .card{
+      background: #282828;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 25px;
+      width: 250px;
+      transform: translate(0%,10%);
+      box-shadow: 10px 10px 10px rgba(0,0,0,0.389);
+    }
+    .card::before{
+      content:'';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border: 25px solid transparent;
+      border-top: 25px solid steelblue;
+      border-right: 25px solid steelblue;
+    }
+    h3{
+      color: steelblue;
+      text-align: center;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    h3::before{
+      content: '';
+      position: absolute;
+      bottom: -1.5px;
+      width: 35px;
+      height: 3px;
+      background:  rgb(61, 61, 220);
+    }
+    p{
+      color: rgb(170, 170, 170);
+      text-align: justify;
+    }
+    .conteudo{
+      height: 110px;
+      overflow: hidden;
+      position: relative;
+    }
+    .conteudo::before{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 50px;
+      width: 100%;
+      background: linear-gradient(transparent, #313131);
+    }
+    .card.active .conteudo{
+      height: auto;
+    }
+
+    .card.active .conteudo::before{
+      background: none;
+    }
+    #read_more{
+      padding: 0.5rem;
+      background: steelblue;
+      border: none;
+      outline: none;
+      letter-spacing: 1px;
+      font-weight: bold;
+      font-size: 15px;
+      margin-top: 13px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.5s linear;
+    }
+    #read_more:hover{
+      background: transparent;
+      color: steelblue;
+      transition: all 0.5s ;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="card">
+    <div class="icon">
+      <img src="Mobile Marketing-bro.png">
+    </div>
+    <div class="conteudo">
+      <h3>Tecnologia</h3>
+      <p>A tecnologia e as telecomunicações mexeram na forma como lídamos com as coisas, como nos comunicamos, nossos relacionamentos, a amneira de trabalharmos e de fazermos negócios. Essas mudanças já estão táo presentes em nossas vidas, que é impossível imaginá-ias sem.</p>
+    </div>
+    <button id="read_more">Ler mais</button>
+  </div>
+
+  <script>
+    var botao = document.getElementById('read_more');
+    botao.addEventListener('click', ()=>{
+      var card = document.querySelector('.card');
+      card.classList.toggle('active');
+      if(card.classList.contains('active')){
+       return botao.textContent = "Ler menos";
+      }
+      else{
+       return botao.textContent = "Ler mais";
+      }
+    })
+  </script>
+
+</body>
+</html>
